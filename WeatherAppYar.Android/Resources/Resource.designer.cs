@@ -8415,13 +8415,64 @@ namespace WeatherAppYar.Droid
 			public const int tooltip_frame_light = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int wind = 2131165312;
+			public const int w01d = 2131165312;
 			
 			// aapt resource value: 0x7F070081
-			public const int xamarin_logo = 2131165313;
+			public const int w01n = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int yv = 2131165314;
+			public const int w02d = 2131165314;
+			
+			// aapt resource value: 0x7F070083
+			public const int w02n = 2131165315;
+			
+			// aapt resource value: 0x7F070084
+			public const int w03d = 2131165316;
+			
+			// aapt resource value: 0x7F070085
+			public const int w03n = 2131165317;
+			
+			// aapt resource value: 0x7F070086
+			public const int w04d = 2131165318;
+			
+			// aapt resource value: 0x7F070087
+			public const int w04n = 2131165319;
+			
+			// aapt resource value: 0x7F070088
+			public const int w09d = 2131165320;
+			
+			// aapt resource value: 0x7F070089
+			public const int w09n = 2131165321;
+			
+			// aapt resource value: 0x7F07008A
+			public const int w10d = 2131165322;
+			
+			// aapt resource value: 0x7F07008B
+			public const int w10n = 2131165323;
+			
+			// aapt resource value: 0x7F07008C
+			public const int w11d = 2131165324;
+			
+			// aapt resource value: 0x7F07008D
+			public const int w11n = 2131165325;
+			
+			// aapt resource value: 0x7F07008E
+			public const int w13d = 2131165326;
+			
+			// aapt resource value: 0x7F07008F
+			public const int w13n = 2131165327;
+			
+			// aapt resource value: 0x7F070090
+			public const int w50d = 2131165328;
+			
+			// aapt resource value: 0x7F070091
+			public const int wind = 2131165329;
+			
+			// aapt resource value: 0x7F070092
+			public const int xamarin_logo = 2131165330;
+			
+			// aapt resource value: 0x7F070093
+			public const int yv = 2131165331;
 			
 			static Drawable()
 			{

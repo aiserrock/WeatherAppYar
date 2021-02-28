@@ -22,6 +22,7 @@ namespace WeatherAppYar
         async void GetWeather()
         {
             WeatherData weatherData = await _restService.GetWeatherData(GenerateRequestUri(Constants.OpenWeatherMapEndpoint));
+            weatherData.Current.Weather[0].Icon = "w" + weatherData.Current.Weather[0].Icon + ".png";
             BindingContext = weatherData;
         }
         string GenerateRequestUri(string endpoint)

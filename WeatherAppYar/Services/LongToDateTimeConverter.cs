@@ -2,7 +2,7 @@
 using System.Globalization;
 using Xamarin.Forms;
 
-namespace WeatherApp
+namespace WeatherAppYar.Services
 {
     public class LongToDateTimeConverter : IValueConverter
     {

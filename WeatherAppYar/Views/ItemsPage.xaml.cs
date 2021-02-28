@@ -20,13 +20,9 @@ namespace WeatherAppYar.Views
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new ItemsViewModel();
+            
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.OnAppearing();
-        }
+        
     }
 }

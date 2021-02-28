@@ -2,43 +2,84 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherAppYar.Views.ItemsPage"
-             Title="{Binding Title}"
+             Title="Broadcast"
              xmlns:local="clr-namespace:WeatherAppYar.ViewModels"  
              xmlns:model="clr-namespace:WeatherAppYar.Models"  
              x:Name="BrowseItemsPage">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
-    <!--
-      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
-      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
-    -->
-    <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Item">
-                        <Label Text="{Binding Text}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding Description}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
+    <StackLayout Spacing="70">
+        <StackLayout Orientation="Vertical" Spacing="50" HorizontalOptions="Center">
+            <StackLayout VerticalOptions="Center">
+                <Grid WidthRequest="320" ColumnSpacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                        <Image Source="humidity.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                                <Label x:Name="humidityTxt1" Text="{Binding Current.Humidity}" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="%" TextColor="White" FontSize="14" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="Humidity" TextColor="White" Margin="0,-5,0,0" FontSize="11" HorizontalOptions="Center"/>
+                        </StackLayout>
                     </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </RefreshView>
+                    <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                        <Image Source="wind.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                                <Label x:Name="windTxt1" Text="{Binding Current.WindSpeed}" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="m/s" TextColor="White" FontSize="14" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="Wind" TextColor="White" Margin="0,-5,0,0" FontSize="11" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                        <Image Source="gauge.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                                <Label x:Name="pressureTxt1" Text="{Binding Current.Pressure}" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="hpa" TextColor="White" FontSize="14" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="Pressure" TextColor="White" Margin="0,-5,0,0" FontSize="11" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Column="3" Orientation="Vertical" Spacing="10" HorizontalOptions="CenterAndExpand">
+                        <Image Source="cloudiness.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        <StackLayout Spacing="7" HorizontalOptions="CenterAndExpand">
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                                <Label x:Name="cloudinessTxt1" Text="{Binding Current.Clouds}" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                <Label Text="%" TextColor="White" FontSize="14" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Label Text="Cloudiness" TextColor="White" Margin="0,-5,0,0" FontSize="11" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center">
+                <Label x:Name="descriptionTxt2" Text="qweeeeeeeeeeeeeeeeeeq" TextColor="Black" FontSize="13" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center">
+                <Label x:Name="descriptionTxt3" Text="qweeeeeeeeeeeeeeeeeeq" TextColor="Black" FontSize="13" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center">
+                <Label x:Name="descriptionTxt4" Text="qweeeeeeeeeeeeeeeeeeq" TextColor="Black" FontSize="13" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center">
+                <Label x:Name="descriptionTxt5" Text="qweeeeeeeeeeeeeeeeeeq" TextColor="Black" FontSize="13" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center">
+                <Label x:Name="descriptionTxt6" Text="qweeeeeeeeeeeeeeeeeeq" TextColor="Black" FontSize="13" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="Center">
+                <Label x:Name="descriptionTxt7" Text="qweeeeeeeeeeeeeeeeeeq" TextColor="Black" FontSize="13" HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

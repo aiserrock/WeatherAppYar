@@ -65,8 +65,8 @@ namespace WeatherApp
         [JsonProperty("pressure")]
         public int Pressure { get; set; }
 
-        [JsonProperty("humiditry")]
-        public int Humiditry { get; set; }
+        [JsonProperty("humidity")]
+        public int Humidity { get; set; }
 
         [JsonProperty("wind_speed")]
         public double WindSpeed { get; set; }

@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WeatherAppYar.Views.ItemDetailPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:WeatherAppYar.ViewModels"  
+             xmlns:model="clr-namespace:WeatherAppYar.Models" xmlns:services="clr-namespace:WeatherAppYar.Services">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+        <Label Text="Text" FontSize="Large" />
+        
+        
     </StackLayout>
     
 </ContentPage>

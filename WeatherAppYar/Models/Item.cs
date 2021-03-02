@@ -11,5 +11,6 @@ namespace WeatherAppYar.Models
         public string Pressure { get; set; }
         public string Precipitation { get; set; }
         public string PrecipitationIcon { get; set; }
+        public long Date { get; set; }
     }
 }

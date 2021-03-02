@@ -4,28 +4,83 @@
              x:Class="WeatherAppYar.Views.ItemsPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:WeatherAppYar.ViewModels"  
-             xmlns:model="clr-namespace:WeatherAppYar.Models"  
+             xmlns:model="clr-namespace:WeatherAppYar.Models" xmlns:services="clr-namespace:WeatherAppYar.Services"
              x:Name="BrowseItemsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="labelStyle" 
+                   TargetType="Label">
+                <Setter Property="FontSize" 
+                        Value="Large" />
+                <Setter Property="TextColor" 
+                        Value="Black" />
+            </Style>
+            
+            <services:LongToDateTimeConverter x:Key="LongToDateTimeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
         <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
+    
     <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Item">
-                        <Label Text="{Binding TemperatureDifference}" 
+                    
+                    <StackLayout  Orientation="Vertical" Padding="10" x:DataType="model:Item">
+                        <StackLayout  Orientation="Horizontal">
+                            <Label Text="Date: "    HorizontalOptions="Center"/>
+                            <Label Text="{Binding Date, Converter={StaticResource LongToDateTimeConverter}}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding Precipitation}" 
+                             />
+                        </StackLayout>
+                        <StackLayout  Orientation="Horizontal">
+                            <Label Text="TempDiff: "    HorizontalOptions="Center"/>
+                            <Label Text="{Binding TemperatureDifference}" 
+                            LineBreakMode="NoWrap" 
+                            Style="{DynamicResource ListItemTextStyle}" 
+                             />
+                            <Image Source="tp.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout   Orientation="Horizontal">
+                            <Label Text="WindSpeed: "    HorizontalOptions="Center"/>
+                            <Label Text="{Binding WindSpeed}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
+                             />
+                            <Image Source="ws.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout   Orientation="Horizontal">
+                            <Label Text="Humidity: "   HorizontalOptions="Center"/>
+                            <Label Text="{Binding Humidity}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                             />
+                            <Image Source="hy.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout   Orientation="Horizontal">
+                            <Label Text="Pressure: "    HorizontalOptions="Center"/>
+                            <Label Text="{Binding Pressure}"
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                             />
+                            <Image Source="pe.png" HeightRequest="25" HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout   Orientation="Horizontal">
+                            <Label Text="Precipitation: "    HorizontalOptions="Center"/>
+                            <Label Text="{Binding Precipitation}" 
+                            LineBreakMode="NoWrap"
+                            Style="{DynamicResource ListItemDetailTextStyle}"
+                             />
+                            <Image Source="{Binding PrecipitationIcon}" HeightRequest="25" HorizontalOptions="Center"/>
+                        </StackLayout>
                         <StackLayout.GestureRecognizers>
                             <TapGestureRecognizer 
                                 NumberOfTapsRequired="1"

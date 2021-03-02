@@ -8,7 +8,7 @@ namespace WeatherApp
         public Current Current { get; set; }
 
         [JsonProperty("daily")]
-        public Daily[] Weather { get; set; }
+        public Daily[] Daily { get; set; }
     }
 
     public class Current

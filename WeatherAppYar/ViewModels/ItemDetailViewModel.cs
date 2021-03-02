@@ -44,9 +44,7 @@ namespace WeatherAppYar.ViewModels
             try
             {
                 var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Text = item.Text;
-                Description = item.Description;
+                
             }
             catch (Exception)
             {

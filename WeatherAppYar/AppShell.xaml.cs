@@ -15,7 +15,6 @@ namespace WeatherAppYar
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
             _restService = new RestService();
             GetWeather();
         }

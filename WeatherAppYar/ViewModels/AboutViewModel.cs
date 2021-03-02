@@ -9,7 +9,7 @@ namespace WeatherAppYar.ViewModels
     public class AboutViewModel : BaseViewModel
     
     {
-        RestService _restService;
+        
         public AboutViewModel()
         {
             Title = "About";

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using WeatherApp;
 using WeatherAppYar.Models;
 using Xamarin.Forms;
 
@@ -10,21 +11,12 @@ namespace WeatherAppYar.ViewModels
     public class ItemDetailViewModel : BaseViewModel
     {
         private string itemId;
-        private string text;
-        private string description;
+        
         public string Id { get; set; }
+        public string Broadcast { get; }
 
-        public string Text
-        {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
 
-        public string Description
-        {
-            get => description;
-            set => SetProperty(ref description, value);
-        }
+
 
         public string ItemId
         {

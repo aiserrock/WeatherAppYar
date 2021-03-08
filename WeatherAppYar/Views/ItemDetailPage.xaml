@@ -7,7 +7,7 @@
              xmlns:model="clr-namespace:WeatherAppYar.Models" xmlns:services="clr-namespace:WeatherAppYar.Services">
 
     <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text" FontSize="Large" />
+        <Label Text="{Binding ItemId}" FontSize="Large" />
         
         
     </StackLayout>
